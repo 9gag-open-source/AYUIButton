@@ -32,7 +32,7 @@
 }
 
 -(void)clearBgColorForButton:(id)sender {
-    UIColor *normalColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateNormal]];
+    UIColor *normalColor = [self backgroundColorForState:UIControlStateNormal];
     if (normalColor) {
         CATransition *animation = [CATransition animation];
         [animation setType:kCATransitionFade];
@@ -42,7 +42,7 @@
     }
 }
 -(void)setBgColorForButton:(id)sender {
-    UIColor *selectedColor = [backgroundStates objectForKey:[NSNumber numberWithInt:UIControlStateHighlighted]];
+    UIColor *selectedColor = [self backgroundColorForState:UIControlStateHighlighted];
     if (selectedColor) {
         self.backgroundColor = selectedColor;
     }
