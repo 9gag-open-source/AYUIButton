@@ -10,8 +10,6 @@
 
 /*
     This subclass was created to be able to set the background color for UIControlState
- 
- 
 */
 
 @interface AYUIButton : UIButton 
@@ -22,7 +20,7 @@
     
 }
 
-- (void) setBackgroundColor:(UIColor *) _backgroundColor forState:(UIControlState) _state;
-- (UIColor*) backgroundColorForState:(UIControlState) _state;
+- (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state;
+- (UIColor*)backgroundColorForState:(UIControlState)state;
 
 @end

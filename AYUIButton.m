@@ -17,18 +17,20 @@
     [Button addTarget:Button action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchDragExit];
     return Button;
 }
-- (void) setBackgroundColor:(UIColor *) _backgroundColor forState:(UIControlState) _state {
-    if (backgroundStates == nil) 
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {
+    if (backgroundStates == nil)
         backgroundStates = [[NSMutableDictionary alloc] init];
     
-    [backgroundStates setObject:_backgroundColor forKey:[NSNumber numberWithInt:_state]];
+    [backgroundStates setObject:backgroundColor forKey:[NSNumber numberWithInt:state]];
     
-    if (self.backgroundColor == nil)
-        [self setBackgroundColor:_backgroundColor];
+    if (self.state == state) {
+        [self setBackgroundColor:backgroundColor];
+    }
 }
 
-- (UIColor*) backgroundColorForState:(UIControlState) _state {
-    return [backgroundStates objectForKey:[NSNumber numberWithInt:_state]];
+- (UIColor *)backgroundColorForState:(UIControlState)state {
+    return [backgroundStates objectForKey:[NSNumber numberWithInt:state]];
 }
 
 -(void)clearBgColorForButton:(id)sender {
@@ -41,11 +43,14 @@
         self.backgroundColor = normalColor;
     }
 }
+
+
 -(void)setBgColorForButton:(id)sender {
     UIColor *selectedColor = [self backgroundColorForState:UIControlStateHighlighted];
     if (selectedColor) {
         self.backgroundColor = selectedColor;
     }
 }
+
 
 @end
