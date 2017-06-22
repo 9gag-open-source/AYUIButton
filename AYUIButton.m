@@ -15,6 +15,8 @@
     [Button addTarget:Button action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchUpInside];
     [Button addTarget:Button action:@selector(setBgColorForButton:) forControlEvents:UIControlEventTouchDown];
     [Button addTarget:Button action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchDragExit];
+    [Button addTarget:Button action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchUpOutside];
+    [Button addTarget:Button action:@selector(clearBgColorForButton:) forControlEvents:UIControlEventTouchCancel];
     return Button;
 }
 
